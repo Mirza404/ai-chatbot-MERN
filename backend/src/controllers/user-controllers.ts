@@ -9,10 +9,10 @@ export const getAllUsers = async (
 ) => {
   try {
     const users = await User.find();
-    return res.status(200).json({ message: "OK", users });
+    return res.status(201).json({ message: "OK", users });
   } catch (error) {
     console.log(error.message);
-    return res.status(500).json({ message: "Error", cause: error.message });
+    return res.status(200).json({ message: "Error", cause: error.message });
   }
 };
 
