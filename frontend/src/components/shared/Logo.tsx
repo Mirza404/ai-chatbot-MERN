@@ -12,7 +12,7 @@ const Logo = () => {
         gap: "8px",
       }}
     >
-      <Link to={"/"}>
+      <Link to={"/"} style={{display: "flex", alignItems: "center"}}>
         <img
           src="4.png"
           alt="openai"
