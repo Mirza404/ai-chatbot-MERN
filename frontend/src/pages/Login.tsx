@@ -3,8 +3,17 @@ import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import CustomizedInput from "../components/shared/CustomizedInput";
+import { Toaster } from "react-hot-toast";
 
 const Login = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password");
+    console.log(email, password);
+  };
+
   return (
     <Box width={"100%"} height={"100%"} display={"flex"} flex={1}>
       <Box padding={8} mt={8} display={{ md: "flex", sm: "none", xs: "none" }}>
@@ -20,6 +29,7 @@ const Login = () => {
         mt={16}
       >
         <form
+          onSubmit={handleSubmit}
           action=""
           style={{
             margin: "auto",

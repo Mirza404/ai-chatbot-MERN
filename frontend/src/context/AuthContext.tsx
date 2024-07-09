@@ -1,16 +1,17 @@
 import { ReactNode, createContext, useContext, useEffect } from "react";
 import { useState } from "react";
+import { loginUser } from "../helpers/api-communicator";
 
 type User = {
-  name: String;
-  email: String;
+  name: string;
+  email: string;
 };
 
 type UserAuth = {
   isLoggedIn: boolean;
   user: User | null;
-  login: (email: String, password: String) => Promise<void>;
-  signup: (name: String, email: String, password: String) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
+  signup: (name: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
 };
 const AuthContext = createContext<UserAuth | null>(null);
@@ -19,14 +20,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {}, []);
-  const login = async (email: String, password: String) => {};
-  const signup = async (name: String, email: String, password: String) => {};
+  const login = async (email: string, password: string) => {
+    const data = await loginUser(email, password);
+    if (data) {
+      setUser({ email: data.email, name: data.name });
+      setIsLoggedIn(true);
+    }
+  };
+  const signup = async (name: string, email: string, password: string) => {};
   const logout = async () => {};
 
   const value = {
     user,
     isLoggedIn,
-    login,
+    login: async (email: string, password: string): Promise<void> => {}, 
     logout,
     signup,
   };
