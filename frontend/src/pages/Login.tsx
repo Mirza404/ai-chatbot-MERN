@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext";
 const Login = () => {
   const auth = useAuth();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log("submitted");
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email") as string;
@@ -16,11 +17,9 @@ const Login = () => {
     try {
       toast.loading("Signing In...", { id: "login" });
       await auth?.login(email, password);
-      toast.dismiss("login");
       toast.success("Signed In Succesfully");
     } catch (error) {
       console.log(error);
-      toast.dismiss("login");
       toast.error("Sign In Failed", { id: "login" });
     }
   };

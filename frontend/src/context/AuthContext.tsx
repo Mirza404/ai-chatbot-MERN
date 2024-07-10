@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const value = {
     user,
     isLoggedIn,
-    login: async (email: string, password: string): Promise<void> => {}, 
+    login,
     logout,
     signup,
   };

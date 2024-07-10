@@ -4,7 +4,7 @@ const chatSchema = new mongoose.Schema({
   id: {
     type: String,
     required: true,
-    default: randomUUID(),
+    default: () => randomUUID(),
     unique: true,
   },
   role: {
@@ -34,4 +34,4 @@ const userSchema = new mongoose.Schema({
   chats: [chatSchema],
 });
 
-export default mongoose.model("User", userSchema)
+export default mongoose.model("User", userSchema);
