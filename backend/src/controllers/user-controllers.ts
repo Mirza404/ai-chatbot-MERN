@@ -50,7 +50,6 @@ export const userLogin = async (
       signed: true,
     });
 
-
     return res
       .status(200)
       .json({ message: "OK", name: user.name, email: user.email });
@@ -59,7 +58,6 @@ export const userLogin = async (
     return res.status(200).json({ message: "ERROR", cause: error.message });
   }
 };
-
 
 export const userSignup = async (
   req: Request,
@@ -72,7 +70,6 @@ export const userSignup = async (
     if (existingUser) return res.status(401).send("User already registered.");
     const hashedPassword = await hash(password, 10);
     const user = new User({ name, email, password: hashedPassword });
-    console.log(user);
     await user.save();
 
     res.clearCookie(COOKIE_NAME, {
@@ -100,5 +97,30 @@ export const userSignup = async (
   } catch (error) {
     console.log(error.message);
     return res.status(500).json({ message: "Error", cause: error.message });
+  }
+};
+
+export const verifyUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findById(res.locals.jwtData.id);
+    if (!user)
+      return res.status(401).send("User Not Registered OR Token Malfunctioned");
+    console.log(user._id.toString(), res.locals.jwtData.id);
+
+    if (user._id.toString() !== res.locals.jwtData.id) {
+      return res.status(401).send("ID Mismatch");
+    }
+
+    return res
+      .status(200)
+      .json({ message: "OK", name: user.name, email: user.email });
+  } catch (error) {
+    console.log(error);
+    return res.status(200).json({ message: "ERROR", cause: error.message });
   }
 };
