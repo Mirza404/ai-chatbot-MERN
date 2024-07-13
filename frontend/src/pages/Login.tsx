@@ -17,9 +17,11 @@ const Login = () => {
     try {
       toast.loading("Signing In...", { id: "login" });
       await auth?.login(email, password);
+      toast.dismiss("login");
       toast.success("Signed In Succesfully");
     } catch (error) {
       console.log(error);
+      toast.dismiss("login");
       toast.error("Sign In Failed", { id: "login" });
     }
   };
