@@ -1,5 +1,16 @@
 import mongoose from "mongoose";
 
+const chatSchema = new mongoose.Schema({
+  role: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  }
+});
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -14,12 +25,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  chats: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Chat",
-    },
-  ],
+  chats: [chatSchema],
 });
 
 export default mongoose.model("User", userSchema);
