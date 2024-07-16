@@ -2,6 +2,8 @@ import { Box, Avatar, Typography, Button, IconButton } from "@mui/material";
 import { red } from "@mui/material/colors";
 import { useAuth } from "../context/AuthContext";
 import ChatItem from "../components/chat/ChatItem";
+import { IoMdSend } from "react-icons/io";
+import { useRef } from "react";
 const chatMessages = [
   { role: "user", content: "Hello, how can I assist you today?" },
   {
@@ -24,7 +26,9 @@ const chatMessages = [
 ];
 
 const Chat = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const auth = useAuth();
+  // const handleSubmit //Will be handled in the next contribution
   return (
     <Box
       sx={{
@@ -138,6 +142,7 @@ const Chat = () => {
         >
           {" "}
           <input
+            ref={inputRef}
             type="text"
             style={{
               width: "100%",
@@ -149,6 +154,9 @@ const Chat = () => {
               fontSize: "20px",
             }}
           />
+          <IconButton sx={{ ml: "auto", color: "white" }}>
+            <IoMdSend />
+          </IconButton>
         </div>
       </Box>
     </Box>
