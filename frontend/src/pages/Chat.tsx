@@ -28,7 +28,9 @@ const chatMessages = [
 const Chat = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const auth = useAuth();
-  // const handleSubmit //Will be handled in the next contribution
+  const handleSubmit = async() =>{
+    console.log(inputRef.current?.value);
+  }
   return (
     <Box
       sx={{
@@ -127,6 +129,7 @@ const Chat = () => {
           }}
         >
           {chatMessages.map((chat, index) => (
+            //@ts-ignore
             <ChatItem content={chat.content} role={chat.role} key={index} />
           ))}
         </Box>
@@ -154,7 +157,7 @@ const Chat = () => {
               fontSize: "20px",
             }}
           />
-          <IconButton sx={{ ml: "auto", color: "white" }}>
+          <IconButton onClick={handleSubmit} sx={{ ml: "auto", color: "white" }}>
             <IoMdSend />
           </IconButton>
         </div>
