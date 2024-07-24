@@ -5,12 +5,12 @@ import ChatItem from "../components/chat/ChatItem";
 import { IoMdSend } from "react-icons/io";
 import { useRef } from "react";
 import { useState } from "react";
+import { sendChatRequest } from "../helpers/api-communicator";
 
 type Message = {
-  role: "user" | "assistant";
+  role: "user" | "bot";
   content: string;
 };
-
 const chatMessages = [
   { role: "user", content: "Hello, how can I assist you today?" },
   {
@@ -43,6 +43,13 @@ const Chat = () => {
     }
     const newMessage: Message = { role: "user", content };
     setChatMessages((prev) => [...prev, newMessage]);
+  
+    try {
+      const response = await sendChatRequest(content);
+      setChatMessages(response.chats);  // Assuming response has the chats array
+    } catch (error) {
+      console.error("Error sending chat:", error);
+    }
   };
   return (
     <Box

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import User from "../models/User.js";
-import { configureAI } from "../config/openai-config.js";
+import { configureOpenAI } from "../config/openai-config.js";
 import { OpenAIApi, ChatCompletionRequestMessage } from "openai";
 export const generateChatCompletion = async (
   req: Request,
@@ -10,6 +10,7 @@ export const generateChatCompletion = async (
   const { message } = req.body;
   try {
     const user = await User.findById(res.locals.jwtData.id);
+    console.log("JWT Data ID:", res.locals.jwtData.id);
     if (!user)
       return res
         .status(401)
@@ -23,14 +24,14 @@ export const generateChatCompletion = async (
     user.chats.push({ content: message, role: "user" });
 
     // send all chats with new one to openAI API
-    const config = configureAI();
+    const config = configureOpenAI();
     const openai = new OpenAIApi(config);
     // get latest response
     const chatResponse = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: chats,
     });
-    user.chats.push({ content: chatResponse.data.choices[0].message, role: "AI" });
+    user.chats.push(chatResponse.data.choices[0].message);
     await user.save();
     return res.status(200).json({ chats: user.chats });
   } catch (error) {
