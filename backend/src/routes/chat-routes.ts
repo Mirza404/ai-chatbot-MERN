@@ -8,11 +8,6 @@ import { generateChatCompletion } from "../controllers/chat-controllers.js";
 
 const chatRoutes = Router();
 
-chatRoutes.use("/", async (req, res) => {
-  const chats = await User.find();
-  res.status(200).json({ message: "OK", chats });
-});
-
 chatRoutes.post(
   "/new",
   validate(chatCompletionValidator),
