@@ -8,28 +8,28 @@ import { useState } from "react";
 import { sendChatRequest } from "../helpers/api-communicator";
 
 type Message = {
-  role: "user" | "bot";
+  role: "user" | "assistant";
   content: string;
 };
 const chatMessages = [
   { role: "user", content: "Hello, how can I assist you today?" },
   {
-    role: "bot",
+    role: "assistant",
     content: "Hi there! I'm here to help you with any questions you have.",
   },
   { role: "user", content: "What's the weather like today?" },
   {
-    role: "bot",
+    role: "assistant",
     content:
       "The weather today is sunny with a high of 25°C and a low of 15°C.",
   },
   { role: "user", content: "Thank you!" },
   {
-    role: "bot",
+    role: "assistant",
     content: "You're welcome! Is there anything else I can help you with?",
   },
   { role: "user", content: "No, that's all for now." },
-  { role: "bot", content: "Alright, have a great day!" },
+  { role: "assistant", content: "Alright, have a great day!" },
 ];
 
 const Chat = () => {
@@ -93,7 +93,7 @@ const Chat = () => {
             {auth?.user?.name.split(" ")[1]?.[0]}
           </Avatar>
           <Typography sx={{ mx: "auto", fontFamily: "work sans" }}>
-            You are talking to a ChatBOT
+            You are talking to a Chatassistant
           </Typography>
           <Typography sx={{ mx: "auto", fontFamily: "work sans", my: 4, p: 3 }}>
             You can ask some questions related to Knowledge, Business, Advices,

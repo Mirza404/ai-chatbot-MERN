@@ -5,8 +5,17 @@ import User from "../models/User.js";
 import { verifyToken } from "../utils/tokens-manager.js";
 import { chatCompletionValidator, validate } from "../utils/validators.js";
 import { generateChatCompletion } from "../controllers/chat-controllers.js";
+import rateLimit from "express-rate-limit";
 
 const chatRoutes = Router();
+
+const chatApiLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // 5 minutes
+  max: 50, // Limit each IP to 50 requests per windowMs
+});
+
+// Apply rate limiting to all chat routes
+chatRoutes.use(chatApiLimiter);
 
 chatRoutes.post(
   "/new",
@@ -14,5 +23,4 @@ chatRoutes.post(
   verifyToken,
   generateChatCompletion
 );
-
 export default chatRoutes;

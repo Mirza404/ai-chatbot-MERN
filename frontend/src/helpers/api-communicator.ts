@@ -1,4 +1,20 @@
 import axios from "axios";
+import axiosRetry from "axios-retry";
+
+// Set up axios to retry on 429 status code with exponential backoff
+axiosRetry(axios, {
+  retries: 3, // Number of retry attempts
+  retryCondition: (error) => {
+    // Retry on 429 status code
+    console.log("retryCondition ran");
+    return error.response ? error.response.status === 429 : false;
+  },
+  retryDelay: (retryCount) => {
+    // Exponential backoff strategy
+    console.log("retryDelay ran");
+    return axiosRetry.exponentialDelay(retryCount);
+  },
+});
 
 export const loginUser = async (email: string, password: string) => {
   const res = await axios.post("/user/login", { email, password });
