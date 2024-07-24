@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { useState } from "react";
 import { sendChatRequest } from "../helpers/api-communicator";
 
+
 type Message = {
   role: "user" | "assistant";
   content: string;
