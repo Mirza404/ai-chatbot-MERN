@@ -52,7 +52,7 @@ export const sendChatRequest = async (message: string) => {
 };
 
 export const getUserChats = async () => {
-  const res = await axios.post("/chat/all-chats");
+  const res = await axios.get("/chat/all-chats");
   if (res.status !== 200) {
     throw new Error("Unable to send chat");
   }
