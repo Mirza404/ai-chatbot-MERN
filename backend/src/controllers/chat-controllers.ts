@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import User from "../models/User.js";
 import { configureOpenAI } from "../config/openai-config.js";
 import { OpenAIApi, ChatCompletionRequestMessage } from "openai";
+
 export const generateChatCompletion = async (
   req: Request,
   res: Response,
@@ -84,3 +85,4 @@ export const deleteChats = async (
     return res.status(200).json({ message: "ERROR", cause: error.message });
   }
 };
+

@@ -50,3 +50,12 @@ export const sendChatRequest = async (message: string) => {
     throw error; // Rethrow to allow caller to handle it as well
   }
 };
+
+export const getUserChats = async () => {
+  const res = await axios.post("/chat/all-chats");
+  if (res.status !== 200) {
+    throw new Error("Unable to send chat");
+  }
+  const data = await res.data;
+  return data;
+};
