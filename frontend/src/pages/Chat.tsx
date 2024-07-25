@@ -5,9 +5,12 @@ import ChatItem from "../components/chat/ChatItem";
 import { IoMdSend } from "react-icons/io";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useState } from "react";
-import { getUserChats, sendChatRequest } from "../helpers/api-communicator";
+import {
+  deleteUserChats,
+  getUserChats,
+  sendChatRequest,
+} from "../helpers/api-communicator";
 import toast from "react-hot-toast";
-
 
 type Message = {
   role: "user" | "assistant";
@@ -45,12 +48,24 @@ const Chat = () => {
     }
     const newMessage: Message = { role: "user", content };
     setChatMessages((prev) => [...prev, newMessage]);
-  
+
     try {
       const response = await sendChatRequest(content);
-      setChatMessages(response.chats);  // Assuming response has the chats array
+      setChatMessages(response.chats); // Assuming response has the chats array
     } catch (error) {
       console.error("Error sending chat:", error);
+    }
+  };
+
+  const handleDeleteChats = async () => {
+    try {
+      toast.loading("Deleting chats", { id: "deletechats" });
+      await deleteUserChats();
+      setChatMessages([]);
+      toast.success("Chats succesfully deleted", { id: "deletechats" });
+    } catch (error) {
+      console.log(error);
+      toast.error("Error deleting messages", {id: "deletechats"})
     }
   };
 
@@ -67,7 +82,7 @@ const Chat = () => {
           toast.error("Loading Failed", { id: "loadchats" });
         });
     }
-  }, []);
+  }, [auth]);
 
   return (
     <Box
@@ -118,6 +133,7 @@ const Chat = () => {
             Education, etc. But avoid sharing personal information
           </Typography>
           <Button
+            onClick={handleDeleteChats}
             sx={{
               width: "200px",
               my: "auto",
