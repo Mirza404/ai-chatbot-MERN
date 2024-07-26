@@ -11,6 +11,7 @@ import {
   sendChatRequest,
 } from "../helpers/api-communicator";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 type Message = {
   role: "user" | "assistant";
@@ -38,6 +39,7 @@ const chatMessages = [
 ];
 
 const Chat = () => {
+  const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
   const auth = useAuth();
   const [chatMessages, setChatMessages] = useState<Message[]>([]);
@@ -83,6 +85,11 @@ const Chat = () => {
         });
     }
   }, [auth]);
+  useEffect(() => {
+    if(!auth?.user){
+      return navigate("/login")
+    }
+  }, [])
 
   return (
     <Box
