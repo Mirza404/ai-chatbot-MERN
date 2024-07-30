@@ -13,7 +13,7 @@ const Footer = () => {
         }}
       >
         <p style={{ fontSize: "30px", textAlign: "center" }}>
-          👾 Built with love by {""} <span><Link className="nav-link" to={"https://github.com/Mirza404"}>Mirza404</Link></span>👾
+          👾 Built with love by <span><Link className="nav-link" to={"https://github.com/Mirza404"}>Mirza404</Link></span>👾
         </p>
       </div>
     </footer>
