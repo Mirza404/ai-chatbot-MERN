@@ -7,7 +7,7 @@ const Header = () => {
   const theme = useTheme();
   const isBelowMd = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Box width={"100%"} height={"100%"} flex={"flex"} mx={"auto"}>
+    <Box width={"100%"} height={"100%"} flex={"flex"} mx={"auto"} sx={{ overflowX: "hidden" }}>
       <Box
         sx={{
           display: "flex",
@@ -31,11 +31,6 @@ const Header = () => {
           }}
         >
           <img
-            src="2.png"
-            alt="robot"
-            style={{ width: "200px", margin: "auto" }}
-          />
-          <img
             className="image-inverted rotate"
             src="4.png"
             alt="robot"
@@ -55,8 +50,8 @@ const Header = () => {
             }}
           />
         </Box>
-        <Footer />
       </Box>
+      <Footer/>
     </Box>
   );
 };
