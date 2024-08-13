@@ -3,6 +3,7 @@ import { Toolbar } from "@mui/material";
 import Logo from "./shared/Logo";
 import { useAuth } from "../context/AuthContext";
 import NavigationLink from "./shared/NavigationLink";
+import ButtonAppBar from "./navbar/ButtonAppBar";
 
 const Header = () => {
   const auth = useAuth();
@@ -17,13 +18,13 @@ const Header = () => {
           {auth?.isLoggedIn ? (
             <>
               <NavigationLink
-                bg="#00fffc"
+                bg="#B1FBC4"
                 to="/chat"
                 text="Chat"
                 textColor="black"
               />
               <NavigationLink
-                bg="#51538f"
+                bg="#138A36"
                 to="/"
                 text="Log out"
                 textColor="white"
@@ -33,13 +34,13 @@ const Header = () => {
           ) : (
             <>
             <NavigationLink
-                bg="#00fffc"
+                bg="#B1FBC4"
                 to="/login"
                 text="Log in"
                 textColor="black"
               />
               <NavigationLink
-                bg="#51538f"
+                bg="#138A36"
                 to="/signup"
                 text="Sign up"
                 textColor="white"

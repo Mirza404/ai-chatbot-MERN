@@ -13,7 +13,7 @@ const Logo = () => {
     >
       <Link to={"/"} style={{display: "flex", alignItems: "center"}}>
         <img
-          src="4.png"
+          src="5.png"
           alt="openai"
           width={"40px"}
           height={"40px"}

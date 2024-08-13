@@ -17,26 +17,6 @@ type Message = {
   role: "user" | "assistant";
   content: string;
 };
-const chatMessages = [
-  { role: "user", content: "Hello, how can I assist you today?" },
-  {
-    role: "assistant",
-    content: "Hi there! I'm here to help you with any questions you have.",
-  },
-  { role: "user", content: "What's the weather like today?" },
-  {
-    role: "assistant",
-    content:
-      "The weather today is sunny with a high of 25°C and a low of 15°C.",
-  },
-  { role: "user", content: "Thank you!" },
-  {
-    role: "assistant",
-    content: "You're welcome! Is there anything else I can help you with?",
-  },
-  { role: "user", content: "No, that's all for now." },
-  { role: "assistant", content: "Alright, have a great day!" },
-];
 
 const Chat = () => {
   const navigate = useNavigate();
@@ -100,6 +80,7 @@ const Chat = () => {
         height: "100%",
         mt: 3,
         gap: 3,
+        overflowX: "hidden" 
       }}
     >
       <Box
@@ -107,6 +88,7 @@ const Chat = () => {
           display: { md: "flex", xs: "none", sm: "none" },
           flex: 0.2,
           flexDirection: "column",
+          
         }}
       >
         <Box
@@ -133,11 +115,11 @@ const Chat = () => {
             {auth?.user?.name.split(" ")[1]?.[0]}
           </Avatar>
           <Typography sx={{ mx: "auto", fontFamily: "work sans" }}>
-            You are talking to a Chatassistant
+            You Are Talking To A Chat Assistant
           </Typography>
           <Typography sx={{ mx: "auto", fontFamily: "work sans", my: 4, p: 3 }}>
-            You can ask some questions related to Knowledge, Business, Advices,
-            Education, etc. But avoid sharing personal information
+            You Can Ask Some Questions Related To Knowledge, Business, Advices,
+            Education, etc. But Avoid Sharing Personal Information!
           </Typography>
           <Button
             onClick={handleDeleteChats}
@@ -159,9 +141,11 @@ const Chat = () => {
       <Box
         sx={{
           display: "flex",
-          flex: { md: 0.8, xs: 1, sm: 1 },
           flexDirection: "column",
-          px: 3,
+          alignItems: "center", // Center the content horizontally
+          width: "100%",
+          maxWidth: "1500px", // Set a maximum width for the chat container
+          margin: "auto", // Center the container within its parent
         }}
       >
         <Typography
@@ -187,6 +171,8 @@ const Chat = () => {
             overflowX: "hidden",
             overflowY: "auto",
             scrollBehavior: "smooth",
+            maxWidth: "100%", // Ensure the chat container does not exceed the width of its parent
+            overflowWrap: "break-word", // Break long words to prevent overflow
           }}
         >
           {chatMessages.map((chat, index) => (

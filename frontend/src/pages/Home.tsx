@@ -1,7 +1,9 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Button, useMediaQuery, useTheme } from "@mui/material";
 import TypingAnim from "../typer/TypingAnim";
 import Footer from "../components/footer/Footer";
+import ButtonAppBar from "../components/navbar/ButtonAppBar";
 import React from "react";
+
 
 const Header = () => {
   const theme = useTheme();
@@ -17,8 +19,9 @@ const Header = () => {
           mx: "auto",
           mt: "3",
         }}
-      >
+        >
         <Box>
+        {/* <ButtonAppBar/> */}
           <TypingAnim />
         </Box>
         <Box
@@ -32,7 +35,7 @@ const Header = () => {
         >
           <img
             className="image-inverted rotate"
-            src="4.png"
+            src="5.png"
             alt="robot"
             style={{ width: "200px", margin: "auto" }}
           />
