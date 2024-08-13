@@ -40,14 +40,14 @@ const ChatItem = ({
       sx={{
         display: "flex",
         p: 2,
-        bgcolor: "#004d5612",
+        bgcolor: "#138A36",
         my: 1,
         gap: 2,
         borderRadius: 2,
       }}
     >
-      <Avatar sx={{ ml: "0" }}>
-        <img src="4.png" alt="openai" width={"30px"} />
+      <Avatar sx={{bgcolor: "black", ml: "0" }}>
+        <img src="5.png" alt="openai" width={"30px"} />
       </Avatar>
       <Box>
         {!messageBlocks && (
@@ -67,13 +67,13 @@ const ChatItem = ({
       </Box>
     </Box>
   ) : (
-    <Box sx={{ display: "flex", p: 2, bgcolor: "#004d56", gap: 2 }}>
+    <Box sx={{ display: "flex", p: 2, bgcolor: "#B1FBC4", gap: 2 }}>
       <Avatar sx={{ ml: "0", bgcolor: "black", color: "white" }}>
         {auth?.user?.name[0]}
         {auth?.user?.name.split(" ")[1]?.[0]}
       </Avatar>
       <Box>
-        <Typography fontSize={"20px"}>{content}</Typography>
+        <Typography sx={{ color: "black" }} fontSize={"20px"}>{content}</Typography>
       </Box>
     </Box>
   );
