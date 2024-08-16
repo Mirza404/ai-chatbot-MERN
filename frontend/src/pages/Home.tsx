@@ -42,7 +42,7 @@ const Header = () => {
         </Box>
         <Box sx={{ display: "flex", width: "100%", mx: "auto" }}>
           <img
-            src="chat.png"
+            src="chat1.png"
             alt="chat"
             style={{
               display: "flex",
