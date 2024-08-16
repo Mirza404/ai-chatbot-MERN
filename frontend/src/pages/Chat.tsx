@@ -47,7 +47,7 @@ const Chat = () => {
       toast.success("Chats succesfully deleted", { id: "deletechats" });
     } catch (error) {
       console.log(error);
-      toast.error("Error deleting messages", {id: "deletechats"})
+      toast.error("Error deleting messages", { id: "deletechats" });
     }
   };
 
@@ -66,10 +66,10 @@ const Chat = () => {
     }
   }, [auth]);
   useEffect(() => {
-    if(!auth?.user){
-      return navigate("/login")
+    if (!auth?.user) {
+      return navigate("/login");
     }
-  }, [])
+  }, []);
 
   return (
     <Box
@@ -80,7 +80,7 @@ const Chat = () => {
         height: "100%",
         mt: 3,
         gap: 3,
-        overflowX: "hidden" 
+        overflowX: "hidden",
       }}
     >
       <Box
@@ -88,7 +88,6 @@ const Chat = () => {
           display: { md: "flex", xs: "none", sm: "none" },
           flex: 0.2,
           flexDirection: "column",
-          
         }}
       >
         <Box
@@ -114,10 +113,25 @@ const Chat = () => {
             {auth?.user?.name[0]}
             {auth?.user?.name.split(" ")[1]?.[0]}
           </Avatar>
-          <Typography sx={{ mx: "auto", fontFamily: "work sans" }}>
+          <Typography
+            sx={{
+              mx: "auto",
+              fontFamily: "Rubik, sans-serif",
+              textAlign: "center",
+            }}
+          >
             You Are Talking To A Chat Assistant
           </Typography>
-          <Typography sx={{ mx: "auto", fontFamily: "work sans", my: 4, p: 3 }}>
+          {/* Commented out because it is abundant*/}
+          <Typography
+            sx={{
+              mx: "auto",
+              fontFamily: "Rubik, sans-serif",
+              my: 4,
+              p: 3,
+              textAlign: "center",
+            }}
+          >
             You Can Ask Some Questions Related To Knowledge, Business, Advices,
             Education, etc. But Avoid Sharing Personal Information!
           </Typography>

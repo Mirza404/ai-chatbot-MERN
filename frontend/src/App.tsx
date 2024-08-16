@@ -6,6 +6,8 @@ import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
+import './index.css'; // Ensure this line is present
+
 
 function App() {
   const auth = useAuth();

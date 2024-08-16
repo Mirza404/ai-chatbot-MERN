@@ -24,6 +24,7 @@ const Logo = () => {
             display: { md: "block", sm: "none", xs: "none" },
             mr: "auto",
             fontWeight: " 600",
+            fontFamily: "Rubik, sans-serif",
             textShadow: "2px 2px 20px #000",
           }}
         >
