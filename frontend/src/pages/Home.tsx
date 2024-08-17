@@ -4,12 +4,22 @@ import Footer from "../components/footer/Footer";
 import ButtonAppBar from "../components/navbar/ButtonAppBar";
 import React from "react";
 
-
 const Header = () => {
   const theme = useTheme();
   const isBelowMd = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Box width={"100%"} height={"100%"} flex={"flex"} mx={"auto"} sx={{ overflowX: "hidden" }}>
+    <Box
+      width={"100%"}
+      height={"100%"}
+      flex={"flex"}
+      mx={"auto"}
+      sx={{
+        overflowX: "hidden",
+        backgroundImage: "url('/bgpic.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -19,9 +29,9 @@ const Header = () => {
           mx: "auto",
           mt: "3",
         }}
-        >
+      >
         <Box>
-        {/* <ButtonAppBar/> */}
+          {/* <ButtonAppBar/> */}
           <TypingAnim />
         </Box>
         <Box
@@ -42,19 +52,19 @@ const Header = () => {
         </Box>
         <Box sx={{ display: "flex", width: "100%", mx: "auto" }}>
           <img
-            src="chat1.png"
+            src="chat.png"
             alt="chat"
             style={{
               display: "flex",
               margin: "auto",
               width: isBelowMd ? "80%" : "60%",
               borderRadius: 20,
-              boxShadow: "-5px -5px 105px #64f3d5",
+              boxShadow: "-5px -5px 105px #000",
             }}
           />
         </Box>
       </Box>
-      <Footer/>
+      <Footer />
     </Box>
   );
 };
