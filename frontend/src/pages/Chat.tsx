@@ -80,6 +80,9 @@ const Chat = () => {
         height: "100%",
         mt: 3,
         gap: 3,
+        backgroundImage: "url('/bgpic.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         overflowX: "hidden",
       }}
     >
@@ -122,7 +125,6 @@ const Chat = () => {
           >
             You Are Talking To A Chat Assistant
           </Typography>
-          {/* Commented out because it is abundant*/}
           <Typography
             sx={{
               mx: "auto",
@@ -156,10 +158,10 @@ const Chat = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center", // Center the content horizontally
+          alignItems: "center", 
           width: "100%",
-          maxWidth: "1500px", // Set a maximum width for the chat container
-          margin: "auto", // Center the container within its parent
+          maxWidth: "1500px", 
+          margin: "auto"
         }}
       >
         <Typography
@@ -194,6 +196,7 @@ const Chat = () => {
             <ChatItem content={chat.content} role={chat.role} key={index} />
           ))}
         </Box>
+      
         <div
           style={{
             width: "100%",
