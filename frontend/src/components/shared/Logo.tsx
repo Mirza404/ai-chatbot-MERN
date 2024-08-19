@@ -11,7 +11,7 @@ const Logo = () => {
         gap: "8px",
       }}
     >
-      <Link to={"/"} style={{display: "flex", alignItems: "center"}}>
+      <Link to={"/"} style={{display: "flex", alignItems: "center", textDecoration: "none"}}>
         <img
           src="5.png"
           alt="openai"
@@ -28,7 +28,7 @@ const Logo = () => {
             textShadow: "2px 2px 20px #000",
           }}
         >
-          <span style={{ fontSize: "20px" }}>MERN</span>-GPT
+          <span style={{ fontSize: "20px"}}>MERN</span>-GPT
         </Typography>
       </Link>
     </div>
