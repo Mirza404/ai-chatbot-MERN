@@ -95,6 +95,7 @@ const Login = () => {
                 width: "100%",
                 borderRadius: 2,
                 bgcolor: "00fffc",
+                color: "white !important",
                 ":hover": {
                   bgcolor: "white",
                   color: "black",

@@ -58,11 +58,11 @@ body {
 }
 
 .signup-box {
-  background-color: #021207; /* Set background color for signup box */
+  background-color: #021207; 
 }
 
 .signup-inner-box {
-  background-color: #021207; /* Set background color for inner signup box */
+  background-color: #021207; 
 }
 
 @keyframes rotation {

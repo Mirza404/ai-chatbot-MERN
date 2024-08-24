@@ -83,6 +83,7 @@ const Signup = () => {
               textAlign="center"
               padding={2}
               fontWeight={600}
+              sx={{ color: 'white !important' }} // Add font color here
             >
               Sign up
             </Typography>
@@ -98,6 +99,7 @@ const Signup = () => {
                 width: "100%",
                 borderRadius: 2,
                 bgcolor: "00fffc",
+                color: "white !important",
                 ":hover": {
                   bgcolor: "white",
                   color: "black",
