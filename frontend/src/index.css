@@ -57,6 +57,14 @@ body {
   animation: rotation 8s infinite linear;
 }
 
+.signup-box {
+  background-color: #021207; /* Set background color for signup box */
+}
+
+.signup-inner-box {
+  background-color: #021207; /* Set background color for inner signup box */
+}
+
 @keyframes rotation {
   from{
     transform: rotate(0deg);

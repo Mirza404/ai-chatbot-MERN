@@ -58,6 +58,8 @@ const Header = () => {
               display: "flex",
               margin: "auto",
               width: isBelowMd ? "80%" : "60%",
+              maxWidth: "950px", // Set a maximum width
+              maxHeight: "1000px", // Set a maximum height
               borderRadius: 20,
               boxShadow: "-5px -5px 105px #000",
             }}

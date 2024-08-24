@@ -29,24 +29,33 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if(auth?.user){
+    if (auth?.user) {
       navigate("/chat");
     }
-  }, [auth, navigate])
+  }, [auth, navigate]);
 
   return (
-    <Box width={"100%"} height={"100%"} display={"flex"} flex={1} bgcolor={"#"}>
-      <Box padding={8} mt={8} display={{ md: "flex", sm: "none", xs: "none" }}>
-        <img src="2.png" alt="Robot" style={{ width: "400px" }} />
-      </Box>
+    <Box
+      width={"100%"}
+      minHeight={"85vh"}
+      maxHeight={"100vh"}
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+      className="signup-box"
+      sx={{
+        backgroundImage: 'url("/bgpic.png")', // Update with the correct path
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    > 
       <Box
         display={"flex"}
-        flex={{ xs: 1, md: 0.5 }}
+        flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"center"}
         padding={2}
-        ml={"auto"}
-        mt={16}
+        className="signup-inner-box" 
       >
         <form
           onSubmit={handleSubmit}
@@ -64,6 +73,7 @@ const Login = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              bgcolor:"#021207"
             }}
           >
             <Typography
@@ -82,7 +92,7 @@ const Login = () => {
                 px: 2,
                 py: 2,
                 mt: 2,
-                width: "400px",
+                width: "100%",
                 borderRadius: 2,
                 bgcolor: "00fffc",
                 ":hover": {
