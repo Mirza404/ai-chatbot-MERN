@@ -1,8 +1,8 @@
-AI CHATBOT MERN
+#AI CHATBOT MERN
 
 This is my first project. It is an AI chatbot that uses the GPT 3.5-Turbo technology directly from the OpenAI API. It was built using the MERN stack and a MongoDB database.
 
-Table of Contents
+##Table of Contents
 1. Installation
 2. Features
 3. Usage
@@ -12,9 +12,9 @@ Table of Contents
 7. License
 8. Contact
 
-Installation
+##Installation
 
-Setting Up Environment Variables
+###Setting Up Environment Variables
 Create a .env File:
 
 Example .env File Structure
@@ -35,22 +35,22 @@ cp backend/.env.example backend/.env
 2) Configure MongoDB and OpenAI:
 Open the backend/.env file and add your own values for the following:
 
-# OpenAI API Secret Key
+OpenAI API Secret Key
 OPEN_AI_SECRET=your_open_ai_secret
 
-# OpenAI Organization ID
+OpenAI Organization ID
 OPEN_AI_ORGANIZATION_ID=your_open_ai_organization_id
 
-# MongoDB Connection String
+MongoDB Connection String
 MONGODB_URL=your_mongodb_url
 
-# JWT Secret Key for Authentication
+JWT Secret Key for Authentication
 JWT_SECRET=your_jwt_secret
 
-# Cookie Secret Key for Session Management
+Cookie Secret Key for Session Management
 COOKIE_SECRET=your_cookie_secret
 
-# Application Port Number
+Application Port Number
 PORT=port_number
 
 3) Where to Get These Values:
@@ -84,21 +84,19 @@ f) PORT:
 
 The port number on which the backend server will run. This can be any available port on your system, such as 3001, 5000, or any other number. If you're unsure, you can leave it like I did at 5000.
 
-# MongoDB Connection String
-MONGO_URI=mongodb+srv://username:password@cluster0.mongodb.net/mydatabase?retryWrites=true&w=majority
-
-# OpenAI API Key
-OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-Note: Make sure not to include the .env file in the Git repository. This is already handled by the .gitignore file in the project, which prevents accidental exposure of sensitive information.
-
-# Clone the repository
+### Clone the repository
+`
 git clone https://github.com/Mirza404/ai-chatbot-MERN.git
-
-# Navigate to the project directory
+`
+### Navigate to the project directory
+`
 cd ai-chatbot-MERN
-
-# Install dependencies
+`
+### Install dependencies
+`
 npm install
-
-# Start the application
+`
+### Start the application
+`
 npm start
+`
