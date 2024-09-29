@@ -1,11 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for the MERN stack application",
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" ",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "build": "tsc",
     "start": "node dist/index.js"
   },
@@ -15,7 +15,6 @@
   "dependencies": {
     "axios-retry": "^4.4.2",
     "bcrypt": "^5.1.0",
-    "concurrently": "^8.2.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -38,3 +37,4 @@
     "typescript": "^5.1.6"
   }
 }
+
