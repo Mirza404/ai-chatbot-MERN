@@ -1,8 +1,8 @@
-#AI CHATBOT MERN
+# AI CHATBOT MERN
 
 This is my first project. It is an AI chatbot that uses the GPT 3.5-Turbo technology directly from the OpenAI API. It was built using the MERN stack and a MongoDB database.
 
-##Table of Contents
+## Table of Contents
 1. Installation
 2. Features
 3. Usage
@@ -12,9 +12,9 @@ This is my first project. It is an AI chatbot that uses the GPT 3.5-Turbo techno
 7. License
 8. Contact
 
-##Installation
+## Installation
 
-###Setting Up Environment Variables
+### Setting Up Environment Variables
 Create a .env File:
 
 Example .env File Structure
