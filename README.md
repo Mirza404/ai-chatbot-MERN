@@ -4,13 +4,7 @@ This is my first project. It is an AI chatbot that uses the GPT 3.5-Turbo techno
 
 ## Table of Contents
 1. [Installation](#installation)
-2. [Features](#features)
-3. [Usage](#usage)
-4. [Screenshots](#screenshots)
-5. [Technologies Used](#technologies-used)
-6. [Contributing](#contributing)
-7. [License](#license)
-8. [Contact](#contact)
+2. [Video Presentation](#video-presentation)
 
 
 ## Installation
@@ -106,3 +100,6 @@ npm install
 `
 npm start
 `
+  
+## Video Presentation
+
