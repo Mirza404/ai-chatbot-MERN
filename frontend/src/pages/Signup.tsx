@@ -18,7 +18,7 @@ const Signup = () => {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     try {
-      toast.loading("Signing Up...", { id: "login" });
+      toast.loading("Signing Up...", { id: "signup" });
       await auth?.signup(name, email, password);
       toast.dismiss("signup");
       toast.success("Signed In Succesfully");
@@ -102,7 +102,7 @@ const Signup = () => {
                 color: "white !important",
                 ":hover": {
                   bgcolor: "white",
-                  color: "black",
+                  color: "black !important",
                 },
               }}
             >

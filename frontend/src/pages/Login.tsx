@@ -98,7 +98,7 @@ const Login = () => {
                 color: "white !important",
                 ":hover": {
                   bgcolor: "white",
-                  color: "black",
+                  color: "black !important",
                 },
               }}
             >
