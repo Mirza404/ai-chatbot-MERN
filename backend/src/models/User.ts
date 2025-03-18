@@ -1,15 +1,12 @@
-import mongoose from "mongoose";
+import mongoose, { Document } from "mongoose";
+import chatSchema, { IChat } from "./Chat.js";
 
-const chatSchema = new mongoose.Schema({
-  role: {
-    type: String,
-    required: true,
-  },
-  content: {
-    type: String,
-    required: true,
-  }
-});
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  password: string;
+  chats: IChat[];
+}
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -25,7 +22,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  chats: [chatSchema],
+  chats: { type: [new mongoose.Schema<IChat>()], default: [] },
 });
 
 export default mongoose.model("User", userSchema);
