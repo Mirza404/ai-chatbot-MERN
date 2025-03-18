@@ -1,9 +1,5 @@
 import mongoose, { Document } from "mongoose";
-
-export interface IChat extends Document {
-  role: string;
-  content: string;
-}
+import { IChat } from "../types/Chat.js";
 
 export const chatSchema = new mongoose.Schema<IChat>({
   role: {

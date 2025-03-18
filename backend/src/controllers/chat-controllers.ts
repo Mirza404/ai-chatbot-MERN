@@ -25,11 +25,11 @@ export const generateChatCompletion = async (
 
     chats.push({ content: message, role: "user" });
 
-    // Create and push user chat to the DocumentArray
+    
     const newUserChat = user.chats.create({ content: message, role: "user" });
+    //new approach, because we have separate user and chat models now
     user.chats.push(newUserChat);
 
-    // Send all chats to OpenAI API
     const config = configureOpenAI();
     const openai = new OpenAIApi(config);
     const chatResponse = await openai.createChatCompletion({
@@ -37,7 +37,6 @@ export const generateChatCompletion = async (
       messages: chats,
     });
 
-    // Create and push AI response to the DocumentArray
     const aiMessage = chatResponse.data.choices[0].message;
     const newAiChat = user.chats.create({
       content: aiMessage.content,
@@ -86,7 +85,7 @@ export const deleteChats = async (
     if (user._id.toString() !== res.locals.jwtData.id) {
       return res.status(401).send("Permissions didn't match");
     }
-    //clear the DocumentArray in place
+
     user.chats.splice(0, user.chats.length);
     await user.save();
     return res.status(200).json({ message: "OK" });

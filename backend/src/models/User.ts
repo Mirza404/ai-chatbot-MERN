@@ -1,12 +1,6 @@
 import mongoose, { Document } from "mongoose";
-import { chatSchema, IChat } from "./Chat.js";
-
-export interface IUser extends Document {
-  name: string;
-  email: string;
-  password: string;
-  chats: mongoose.Types.DocumentArray<IChat>;
-}
+import { chatSchema } from "./Chat.js";
+import { IUser } from "../types/User.js";
 
 const userSchema = new mongoose.Schema<IUser>({
   name: {
@@ -22,7 +16,7 @@ const userSchema = new mongoose.Schema<IUser>({
     type: String,
     required: true,
   },
-  chats: [chatSchema], // Simply use the imported schema here
+  chats: [chatSchema], //use the schema instead of the exported model, important!
 });
 
 export default mongoose.model("User", userSchema);
